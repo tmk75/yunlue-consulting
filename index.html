@@ -1,0 +1,381 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YUNLUE Consulting</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .bg-primary {
+            background-color: #165DFF;
+        }
+        .text-primary {
+            color: #165DFF;
+        }
+        .hover\:bg-primary\/90:hover {
+            background-color: rgba(22, 93, 255, 0.9);
+        }
+        .shadow-primary\/20 {
+            box-shadow: 0 4px 6px -1px rgba(22, 93, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="glass sticky top-0 z-50 px-6 md:px-12 py-4 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">Y</span>
+                </div>
+                <span class="text-xl font-semibold">YUNLUE</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-dark/80 hover:text-primary transition-colors">About</a>
+                <a href="#services" class="text-dark/80 hover:text-primary transition-colors">Services</a>
+                <a href="#insights" class="text-dark/80 hover:text-primary transition-colors">Insights</a>
+                <a href="#contact" class="text-dark/80 hover:text-primary transition-colors">Contact</a>
+            </div>
+
+            <button class="hidden md:block px-6 py-2 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors">
+                Get Consultation
+            </button>
+
+            <button class="md:hidden text-xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-[90vh] flex items-center px-6 md:px-12 py-16">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-block px-4 py-2 rounded-full glass text-primary font-medium">
+                    Strategic Consulting Experts
+                </div>
+                <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-shadow">
+                    Bridging the <span class="text-primary">Execution Gaps</span> in Corporate Strategy
+                </h1>
+                <p class="text-lg text-dark/70 max-w-lg">
+                    Over 70% of enterprise strategic failures occur due to execution gaps. We help organizations overcome these barriers through specialized consulting.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button class="px-8 py-3 rounded-full bg-primary text-white hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                        Learn More
+                    </button>
+                    <button class="px-8 py-3 rounded-full glass hover:bg-white/30 transition-all">
+                        Our Approach
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="glass rounded-2xl p-8 shadow-xl hover-lift">
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-xl font-semibold">Key Execution Barriers</h3>
+                        <span class="text-primary"><i class="fa fa-chart-pie"></i></span>
+                    </div>
+                    <div class="h-64 md:h-80">
+                        <canvas id="barriersChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Decorative elements -->
+                <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-primary/10 rounded-full blur-xl"></div>
+                <div class="absolute -top-6 -right-6 w-32 h-32 bg-primary/5 rounded-full blur-xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="px-6 md:px-12 py-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <div class="inline-block px-4 py-2 rounded-full glass text-primary font-medium">
+                    About YUNLUE
+                </div>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold">Strategy Focused Organizations</h2>
+                <p class="text-dark/70">We specialize in helping enterprises overcome strategic execution challenges through our proven methodologies and expert consulting.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass rounded-xl p-8 hover-lift">
+                    <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+                        <i class="fa fa-sitemap text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Organization Consulting</h3>
+                    <p class="text-dark/70">We analyze and optimize organizational structures to eliminate bottlenecks and improve efficiency.</p>
+                </div>
+
+                <div class="glass rounded-xl p-8 hover-lift">
+                    <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+                        <i class="fa fa-users text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Talent Deployment</h3>
+                    <p class="text-dark/70">Our experts help deploy the right talent in the right positions to maximize organizational performance.</p>
+                </div>
+
+                <div class="glass rounded-xl p-8 hover-lift">
+                    <div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+                        <i class="fa fa-search text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Executive Search</h3>
+                    <p class="text-dark/70">We identify and recruit top executive talent that aligns with your strategic goals and organizational culture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="px-6 md:px-12 py-20 bg-gradient-to-b from-transparent to-primary/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <div class="inline-block px-4 py-2 rounded-full glass text-primary font-medium">
+                    Our Services
+                </div>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold">Comprehensive Solutions</h2>
+                <p class="text-dark/70">We offer end-to-end consulting services to address all aspects of strategic execution.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass rounded-2xl overflow-hidden hover-lift">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://picsum.photos/id/1043/800/500" alt="Organization Consulting" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-4">Organization Consulting</h3>
+                        <p class="text-dark/70 mb-6">Our organizational consulting services help restructure your business for optimal performance, addressing the 60% gap in structural efficiency that plagues many enterprises.</p>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-check text-primary mt-1"></i>
+                                <span>Structural analysis and optimization</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-check text-primary mt-1"></i>
+                                <span>Process streamlining</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-check text-primary mt-1"></i>
+                                <span>Change management implementation</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="inline-flex items-center gap-2 text-primary font-medium hover:underline">
+                            Learn more <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl overflow-hidden hover-lift">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://picsum.photos/id/1070/800/500" alt="Executive Search" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-4">Executive Search</h3>
+                        <p class="text-dark/70 mb-6">Our executive search services address the 40% talent deployment gap by finding leaders who can drive your strategy forward with the right skills and cultural fit.</p>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-check text-primary mt-1"></i>
+                                <span>Leadership assessment and recruitment</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-check text-primary mt-1"></i>
+                                <span>Talent pipeline development</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-check text-primary mt-1"></i>
+                                <span>Succession planning</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="inline-flex items-center gap-2 text-primary font-medium hover:underline">
+                            Learn more <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="px-6 md:px-12 py-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <div class="inline-block px-4 py-2 rounded-full glass text-primary font-medium">
+                    Industry Insights
+                </div>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold">Understanding Execution Gaps</h2>
+                <p class="text-dark/70">Our research and analysis reveal the critical factors behind strategic execution failures.</p>
+            </div>
+
+            <div class="glass rounded-2xl p-8 md:p-12">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6">The 70% Failure Rate: Why Strategies Fail</h3>
+                        <p class="text-dark/70 mb-6">Our extensive research shows that over 70% of enterprise strategic failures are directly attributable to execution gaps rather than flawed strategy design.</p>
+
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Organizational Structure Barriers</span>
+                                    <span class="text-primary font-semibold">60%</span>
+                                </div>
+                                <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary rounded-full" style="width: 60%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Talent Deployment Issues</span>
+                                    <span class="text-primary font-semibold">40%</span>
+                                </div>
+                                <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary rounded-full" style="width: 40%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Communication Breakdowns</span>
+                                    <span class="text-primary font-semibold">35%</span>
+                                </div>
+                                <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary rounded-full" style="width: 35%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Resource Allocation Problems</span>
+                                    <span class="text-primary font-semibold">30%</span>
+                                </div>
+                                <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary rounded-full" style="width: 30%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Measurement & Feedback Loops</span>
+                                    <span class="text-primary font-semibold">25%</span>
+                                </div>
+                                <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary rounded-full" style="width: 25%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="h-80">
+                        <canvas id="gapsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="px-6 md:px-12 py-20 bg-gradient-to-b from-transparent to-primary/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-block px-4 py-2 rounded-full glass text-primary font-medium mb-6">
+                        Get In Touch
+                    </div>
+                    <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-6">Let's Bridge Your Execution Gaps</h2>
+                    <p class="text-dark/70 mb-8 max-w-lg">Contact us today to schedule a consultation and learn how we can help your organization overcome strategic execution challenges.</p>
+
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full glass flex items-center justify-center shrink-0">
+                                <i class="fa fa-map-marker text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Location</h4>
+                                <p class="text-dark/70">123 Consulting Avenue, Business District, New York, NY 10001</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full glass flex items-center justify-center shrink-0">
+                                <i class="fa fa-envelope text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Email</h4>
+                                <p class="text-dark/70">contact@yunlueconsulting.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full glass flex items-center justify-center shrink-0">
+                                <i class="fa fa-phone text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Phone</h4>
+                                <p class="text-dark/70">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <a href="#" class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa fa-linkedin"></i>
