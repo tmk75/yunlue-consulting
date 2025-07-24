@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云略咨询团队外部对标知识萃取报告+白皮书框架</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-button.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        @media print {
+            .tab-container {
+                display: block !important;
+            }
+            .tab-content {
+                display: block !important;
+                page-break-inside: avoid;
+                margin-bottom: 2rem;
+            }
+            .tab-buttons {
+                display: none;
+            }
+        }
+        .process-step {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .process-step::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #3b82f6;
+        }
+        .process-step::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background-color: #e5e7eb;
+        }
+        .process-step:last-child::after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-chart-line text-blue-600 mr-3"></i>
+                    云略咨询团队外部对标知识萃取报告+白皮书框架
+                </h1>
+                <p class="text-xl text-gray-600 mb-6">完整的咨询团队外部对标知识萃取报告和白皮书创建框架体系</p>
+                <div class="flex items-center justify-center space-x-8 text-sm text-gray-500">
+                    <span><i class="fas fa-calendar-alt mr-2"></i>创建时间：2025年</span>
+                    <span><i class="fas fa-tag mr-2"></i>类型：框架文档</span>
+                    <span><i class="fas fa-users mr-2"></i>适用：咨询团队</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="bg-white rounded-lg shadow-lg mb-8">
+            <div class="tab-buttons flex flex-wrap border-b border-gray-200">
+                <button class="tab-button active px-6 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition-colors" onclick="showTab('architecture')">
+                    <i class="fas fa-sitemap mr-2"></i>整体架构
+                </button>
+                <button class="tab-button px-6 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition-colors" onclick="showTab('report')">
+                    <i class="fas fa-file-alt mr-2"></i>报告框架
+                </button>
+                <button class="tab-button px-6 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition-colors" onclick="showTab('whitepaper')">
+                    <i class="fas fa-book mr-2"></i>白皮书设计
+                </button>
+                <button class="tab-button px-6 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition-colors" onclick="showTab('implementation')">
+                    <i class="fas fa-road mr-2"></i>实施路径
+                </button>
+                <button class="tab-button px-6 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition-colors" onclick="showTab('application')">
+                    <i class="fas fa-rocket mr-2"></i>应用策略
+                </button>
+                <button class="tab-button px-6 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition-colors" onclick="showTab('optimization')">
+                    <i class="fas fa-cogs mr-2"></i>优化机制
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-container p-8">
+                <!-- 整体架构设计 -->
+                <div id="architecture" class="tab-content active">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-sitemap text-blue-600 mr-3"></i>整体架构设计
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h3 class="text-lg font-semibold text-blue-800 mb-4">
+                                <i class="fas fa-bullseye mr-2"></i>双重产出物定位
+                            </h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-file-alt text-blue-600 mt-1 mr-3"></i>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">知识萃取报告</h4>
+                                        <p class="text-sm text-gray-600">内部使用，深度分析，数据驱动</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-book text-blue-600 mt-1 mr-3"></i>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">白皮书</h4>
+                                        <p class="text-sm text-gray-600">外部发布，观点输出，品牌建设</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <h3 class="text-lg font-semibold text-green-800 mb-4">
+                                <i class="fas fa-link mr-2"></i>核心价值链条
+                            </h3>
+                            <div class="flex flex-col space-y-2">
+                                <div class="flex items-center">
+                                    <span class="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm">市场调研</span>
+                                    <i class="fas fa-arrow-right text-green-600 mx-2"></i>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm">数据收集</span>
+                                    <i class="fas fa-arrow-right text-green-600 mx-2"></i>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm">深度分析</span>
+                                    <i class="fas fa-arrow-right text-green-600 mx-2"></i>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm">知识萃取</span>
+                                    <i class="fas fa-arrow-right text-green-600 mx-2"></i>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm">观点提炼</span>
+                                    <i class="fas fa-arrow-right text-green-600 mx-2"></i>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm">价值输出</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                            <i class="fas fa-lightbulb mr-2"></i>设计理念
+                        </h3>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="text-center">
+                                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-search text-blue-600 text-xl"></i>
+                                </div>
+                                <h4 class="font-medium text-gray-800 mb-2">系统性调研</h4>
+                                <p class="text-sm text-gray-600">全面覆盖目标对象，深入挖掘核心信息</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-brain text-purple-600 text-xl"></i>
+                                </div>
+                                <h4 class="font-medium text-gray-800 mb-2">智能化分析</h4>
+                                <p class="text-sm text-gray-600">运用先进分析方法，提炼关键洞察</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-rocket text-green-600 text-xl"></i>
+                                </div>
+                                <h4 class="font-medium text-gray-800 mb-2">价值化输出</h4>
+                                <p class="text-sm text-gray-600">转化为可操作的战略建议和行动方案</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 知识萃取报告框架 -->
+                <div id="report" class="tab-content">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-file-alt text-blue-600 mr-3"></i>知识萃取报告框架
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white border-l-4 border-blue-500 p-6 rounded-r-lg shadow-sm">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                                <i class="fas fa-list-ol mr-2"></i>报告结构体系
+                            </h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <div class="bg-blue-50 p-4 rounded-lg">
+                                        <h4 class="font-medium text-blue-800 mb-2">第一部分：执行摘要</h4>
+                                        <ul class="text-sm text-blue-700 space-y-1">
+                                            <li>• 对标目标与范围界定</li>
+                                            <li>• 核心发现与关键洞察</li>
+                                            <li>• 战略建议概览</li>
+                                            <li>• 行动计划要点</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-green-50 p-4 rounded-lg">
+                                        <h4 class="font-medium text-green-800 mb-2">第二部分：对标方法论</h4>
+                                        <ul class="text-sm text-green-700 space-y-1">
+                                            <li>• 对标维度设计</li>
+                                            <li>• 数据收集方法</li>
+                                            <li>• 分析模型构建</li>
+                                            <li>• 质量控制机制</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-purple-50 p-4 rounded-lg">
+                                        <h4 class="font-medium text-purple-800 mb-2">第三部分：市场格局分析</h4>
+                                        <ul class="text-sm text-purple-700 space-y-1">
+                                            <li>• 行业发展趋势</li>
+                                            <li>• 竞争态势分析</li>
+                                            <li>• 市场机会识别</li>
+                                            <li>• 风险点评估</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="bg-orange-50 p-4 rounded-lg">
+                                        <h4 class="font-medium text-orange-800 mb-2">第四部分：标杆企业深度剖析</h4>
+                                        <ul class="text-sm text-orange-700 space-y-1">
+                                            <li>• 头部企业画像</li>
+                                            <li>• 商业模式解构</li>
+                                            <li>• 核心能力分析</li>
+                                            <li>• 成功要素提取</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-red-50 p-4 rounded-lg">
+                                        <h4 class="font-medium text-red-800 mb-2">第五部分：能力对标分析</h4>
+                                        <ul class="text-sm text-red-700 space-y-1">
+                                            <li>• 服务能力对比</li>
+                                            <li>• 交付模式分析</li>
+                                            <li>• 人才结构对标</li>
+                                            <li>• 技术工具对比</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-teal-50 p-4 rounded-lg">
+                                        <h4 class="font-medium text-teal-800 mb-2">第六部分：最佳实践萃取</h4>
+                                        <ul class="text-sm text-teal-700 space-y-1">
+                                            <li>• 优秀案例集锦</li>
+                                            <li>• 成功模式总结</li>
+                                            <li>• 创新做法提炼</li>
+                                            <li>• 可复制要素识别</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border-l-4 border-green-500 p-6 rounded-r-lg shadow-sm">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                                <i class="fas fa-chart-bar mr-2"></i>数据维度设计
+                            </h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-gray-800 mb-3 flex items-center">
+                                        <i class="fas fa-calculator text-blue-600 mr-2"></i>定量指标体系
+                                    </h4>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                                            <span class="text-sm">财务表现指标</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                                            <span class="text-sm">业务规模指标</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                                            <span class="text-sm">效率效能指标</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
+                                            <span class="text-sm">市场地位指标</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-gray-800 mb-3 flex items-center">
+                                        <i class="fas fa-eye text-purple-600 mr-2"></i>定性分析框架
+                                    </h4>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <span class="w-2 h-2 bg-red-500 rounded-full mr-3"></span>
+                                            <span class="text-sm">战略定位分析</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="w-2 h-2 bg-teal-500 rounded-full mr-3"></span>
+                                            <span class="text-sm">组织能力评估</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="w-2 h-2 bg-yellow-500 rounded-full mr-3"></span>
+                                            <span class="text-sm">文化特色识别</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
+                                            <span class="text-sm">创新能力判断</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 白皮书框架设计 -->
+                <div id="whitepaper" class="tab-content">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-book text-blue-600 mr-3"></i>白皮书框架设计
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white border-l-4 border-purple-500 p-6 rounded-r-lg shadow-sm">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                                <i class="fas fa-sitemap mr-2"></i>内容架构
+                            </h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                                        <h4 class="font-medium text-blue-800 mb-2">开篇：行业洞察</h4>
+                                        <ul class="text-sm text-blue-700 space-y-1">
+                                            <li>• 宏观环境分析</li>
+                                            <li>• 行业发展阶段判断</li>
+                                            <li>• 关键趋势识别</li>
+                                            <li>• 未来展望</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                                        <h4 class="font-medium text-green-800 mb-2">核心：价值主张</h4>
+                                        <ul class="text-sm text-green-700 space-y-1">
+                                            <li>• 咨询价值重新定义</li>
+                                            <li>• 客户需求演进分析</li>
+                                            <li>• 服务模式创新方向</li>
+                                            <li>• 数字化转型路径</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
+                                        <h4 class="font-medium text-purple-800 mb-2">深入：方法论输出</h4>
+                                        <ul class="text-sm text-purple-700 space-y-1">
+                                            <li>• 独特分析框架</li>
+                                            <li>• 解决方案体系</li>
+                                            <li>• 最佳实践模型</li>
+                                            <li>• 工具方法集</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+                                        <h4 class="font-medium text-orange-800 mb-2">落地：实践案例</h4>
+                                        <ul class="text-sm text-orange-700 space-y-1">
+                                            <li>• 典型案例分析</li>
+                                            <li>• 成功经验总结</li>
+                                            <li>• 实施路径建议</li>
+                                            <li>• 效果评估方法</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border-l-4 border-teal-500 p-6 rounded-r-lg shadow-sm">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                                <i class="fas fa-lightbulb mr-2"></i>观点体系构建
+                            </h3>
+                            <div class="space-y-4">
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-red-800 mb-3 flex items-center">
+                                        <i class="fas fa-globe text-red-600 mr-2"></i>宏观观点层
+                                    </h4>
+                                    <div class="grid md:grid-cols-3 gap-4">
+                                        <div class="text-center">
+                                            <div class="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2">
+                                                <i class="fas fa-industry text-red-600"></i>
+                                            </div>
+                                            <span class="text-sm text-red-700">行业发展判断</span>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2">
+                                                <i class="fas fa-chart-line text-red-600"></i>
+                                            </div>
+                                            <span class="text-sm text-red-700">市场趋势预测</span>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2">
+                                                <i class="fas fa-gavel text-red-600"></i>
+                                            </div>
+                                            <span class="text-sm text-red-700">政策影响分析</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-blue-800 mb-3 flex items-center">
+                                        <i class="fas fa-building text-blue-600 mr-2"></i>中观观点层
+                                    </h4>
+                                    <div class="grid md:grid-cols-3 gap-4">
+                                        <div class="text-center">
+                                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2">
+                                                <i class="fas fa-chess text-blue-600"></i>
+                                            </div>
+                                            <span class="text-sm text-blue-700">竞争格局演变</span>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2">
+                                                <i class="fas fa-lightbulb text-blue-600"></i>
+                                            </div>
+                                            <span class="text-sm text-blue-700">商业模式创新</span>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2">
+                                                <i class="fas fa-link text-blue-600"></i>
+                                            </div>
+                                            <span class="text-sm text-blue-700">价值链重构</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-green-800 mb-3 flex items-center">
+                                        <i class="fas fa-cog text-green-600 mr-2"></i>微观观点层
+                                    </h4>
+                                    <div class="grid md:grid-cols-3 gap-4">
+                                        <div class="text-center">
+                                            <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2">
+                                                <i class="fas fa-arrow-up text-green-600"></i>
+                                            </div>
+                                            <span class="text-sm text-green-700">服务能力提升</span>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2">
+                                                <i class="fas fa-tachometer-alt text-green-600"></i>
+                                            </div>
+                                            <span class="text-sm text-green-700">交付效率优化</span>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2">
+                                                <i class="fas fa-heart text-green-600"></i>
+                                            </div>
+                                            <span class="text-sm text-green-700">客户体验改善</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 实施路径设计 -->
+                <div id="implementation" class="tab-content">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-road text-blue-600 mr-3"></i>实施路径设计
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white border-l-4 border-indigo-500 p-6 rounded-r-lg shadow-sm">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                                <i class="fas fa-project-diagram mr-2"></i>项目执行阶段
+                            </h3>
+                            <div class="space-y-6">
+                                <div class="process-step">
+                                    <div class="bg-blue-50 p-4 rounded-lg">
+                                        <h4 class="font-medium text-blue-800 mb-2">第一阶段：准备启动（2-3周）</h4>
+                                        <div class="grid md:grid-cols-2 gap-4">
+                                            <div>
+                                                <h5 class="font-medium text-gray-700 mb-2">核心任务</h5>
+                                                <ul class="text-sm text-gray-600 space-y-1">
+                                                    <li>• 项目目标明确</li>
+                                                    <li>• 对标对象确定</li>
+                                                    <li>• 研究方法设计</li>
+                                                    <li>• 团队组建到位</li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h5 class="font-medium text-gray-700 mb-2">关键产出</h5>
+                                                <ul class="text-sm text-gray-600 space-y-1">
+                                                    <li>• 项目启动方案</li>
+                                                    <li>• 对标企业清单</li>
+                                                    <li>• 调研问卷设计</li>
+                                                    <li>• 项目计划书</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="process-step">
+                                    <div class="bg-green-50 p-4 rounded-lg">
+                                        <h4 class="font-medium text-green-800 mb-2">第二阶段：数据收集（4-6周）</h4>
+                                        <div class="grid md:grid-cols-2 gap-4">
+                                            <div>
+                                                <h5 class="font-medium text-gray-700 mb-2">核心任务</h5>
+                                                <ul class="text-sm text-gray-600 space-y-1">
+                                                    <li>• 公开信息搜集</li>
+                                                    <li>• 深度访谈实施</li>
+                                                    <li>• 专家咨询开展</li>
+                                                    <li>• 内部数据整理</li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h5 class="font-medium text-gray-700 mb-2">关键产出</h5>
+                                                <ul class="text-sm text-gray-600 space-y-1">
+                                                    <li>• 企业信息档案</li>
+                                                    <li>• 访谈记录整理</li>
+                                                    <li>• 专家观点汇总</li>
+                                                    <li>• 数据库建立</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="process-step">
+                                    <div class="bg-purple-50 p-4 rounded-lg">
+                                        <h4 class="font-medium text-purple-800 mb-2">第三阶段：分析萃取（3-4周）</h4>
+                                        <div class="grid md:grid-cols-2 gap-4">
+                                            <div>
+                                                <h5 class="font-medium text-gray-700 mb-2">核心任务</h5>
+                                                <ul class="text-sm text-gray-600 space-y-1">
+                                                    <li>• 数据清洗分析</li>
+                                                    <li>• 对标结果输出</li>
+                                                    <li>• 最佳实践提炼</li>
+                                                    <li>• 差距分析完成</li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h5 class="font-medium text-gray-700 mb-2">关键产出</h5>
+                                                <ul class="text-sm text-gray-600 space-y-1">
+                                                    <li>• 对标分析报告</li>
+                                                    <li>• 最佳实践案例</li>
+                                                    <li>• 差距分析图表</li>
+                                                    <li>• 改进建议清单</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="process-step">
+                                    <div class="bg-orange-50 p-4 rounded-lg">
+                                        <h4 class="font-medium text-orange-800 mb-2">第四阶段：报告撰写（2-3周）</h4>
+                                        <div class="grid md:grid-cols-2 gap-4">
+                                            <div>
+                                                <h5 class="font-medium text-gray-700 mb-2">核心任务</h5>
+                                                <ul class="text-sm text-gray-600 space-y-1">
+                                                    <li>• 内部报告完成</li>
+                                                    <li>• 白皮书初稿</li>
+                                                    <li>• 内部评审优化</li>
+                                                    <li>• 最终版本确定</li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h5 class="font-medium text-gray-700 mb-2">关键产出</h5>
+                                                <ul class="text-sm text-gray-600 space-y-1">
+                                                    <li>• 知识萃取报告</li>
+                                                    <li>• 白皮书终稿</li>
+                                                    <li>• 演示文稿</li>
+                                                    <li>• 传播推广方案</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border-l-4 border-red-500 p-6 rounded-r-lg shadow-sm">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                                <i class="fas fa-shield-alt mr-2"></i>质量保障机制
+                            </h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-red-800 mb-3 flex items-center">
+                                        <i class="fas fa-check-double text-red-600 mr-2"></i>多重验证体系
+                                    </h4>
+                                    <div class="space-y-3">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-database text-red-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-red-700">数据源交叉验证</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-user-graduate text-red-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-red-700">专家观点校验</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-users text-red-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-red-700">内部同行评议</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-external-link-alt text-red-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-red-700">外部顾问审核</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-yellow-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-yellow-800 mb-3 flex items-center">
+                                        <i class="fas fa-sync-alt text-yellow-600 mr-2"></i>迭代优化流程
+                                    </h4>
+                                    <div class="space-y-3">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-chart-pie text-yellow-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-yellow-700">阶段性成果评估</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-wrench text-yellow-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-yellow-700">及时调整优化</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-arrow-up text-yellow-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-yellow-700">持续改进提升</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-check-circle text-yellow-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-yellow-700">最终质量把关</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 成果应用策略 -->
+                <div id="application" class="tab-content">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-rocket text-blue-600 mr-3"></i>成果应用策略
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white border-l-4 border-blue-500 p-6 rounded-r-lg shadow-sm">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                                <i class="fas fa-home mr-2"></i>内部价值实现
+                            </h3>
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-blue-800 mb-3 flex items-center">
+                                        <i class="fas fa-chess-king text-blue-600 mr-2"></i>战略层面
+                                    </h4>
+                                    <div class="space-y-2">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-bullseye text-blue-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-blue-700">战略定位优化</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-compass text-blue-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-blue-700">发展方向调整</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-balance-scale text-blue-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-blue-700">资源配置指导</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-green-800 mb-3 flex items-center">
+                                        <i class="fas fa-cogs text-green-600 mr-2"></i>运营层面
+                                    </h4>
+                                    <div class="space-y-2">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-arrow-up text-green-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-green-700">服务能力提升</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-sync text-green-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-green-700">交付模式优化</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-tachometer-alt text-green-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-green-700">效率效能改善</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-purple-800 mb-3 flex items-center">
+                                        <i class="fas fa-users text-purple-600 mr-2"></i>人才层面
+                                    </h4>
+                                    <div class="space-y-2">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-puzzle-piece text-purple-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-purple-700">能力模型构建</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-graduation-cap text-purple-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-purple-700">培养体系设计</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-trophy text-purple-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-purple-700">激励机制完善</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border-l-4 border-green-500 p-6 rounded-r-lg shadow-sm">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                                <i class="fas fa-globe mr-2"></i>外部影响力建设
+                            </h3>
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <div class="bg-orange-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-orange-800 mb-3 flex items-center">
+                                        <i class="fas fa-lightbulb text-orange-600 mr-2"></i>思想领导力
+                                    </h4>
+                                    <div class="space-y-2">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-comment text-orange-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-orange-700">行业观点输出</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-share-alt text-orange-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-orange-700">专业见解分享</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-flag text-orange-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-orange-700">前沿趋势引领</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-teal-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-teal-800 mb-3 flex items-center">
+                                        <i class="fas fa-star text-teal-600 mr-2"></i>品牌价值提升
+                                    </h4>
+                                    <div class="space-y-2">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-user-tie text-teal-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-teal-700">专业形象塑造</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-chart-line text-teal-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-teal-700">市场认知强化</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-handshake text-teal-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-teal-700">客户信任建立</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-pink-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-pink-800 mb-3 flex items-center">
+                                        <i class="fas fa-business-time text-pink-600 mr-2"></i>商业机会创造
+                                    </h4>
+                                    <div class="space-y-2">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-search text-pink-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-pink-700">潜在客户识别</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-puzzle-piece text-pink-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-pink-700">合作机会发现</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-expand-arrows-alt text-pink-600 mt-1 mr-2"></i>
+                                            <span class="text-sm text-pink-700">业务拓展支撑</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                                <i class="fas fa-chart-pie mr-2"></i>价值实现路径
+                            </h3>
+                            <div class="flex items-center justify-between space-x-4">
+                                <div class="text-center">
+                                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <i class="fas fa-file-alt text-blue-600 text-xl"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-700">报告完成</span>
+                                </div>
+                                <i class="fas fa-arrow-right text-gray-400"></i>
+                                <div class="text-center">
+                                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <i class="fas fa-cog text-green-600 text-xl"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-700">内部应用</span>
+                                </div>
+                                <i class="fas fa-arrow-right text-gray-400"></i>
+                                <div class="text-center">
+                                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <i class="fas fa-share text-purple-600 text-xl"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-700">外部发布</span>
+                                </div>
+                                <i class="fas fa-arrow-right text-gray-400"></i>
+                                <div class="text-center">
+                                    <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <i class="fas fa-trophy text-orange-600 text-xl"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-700">价值收获</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 持续优化机制 -->
+                <div id="optimization" class="tab-content">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-cogs text-blue-600 mr-3"></i>持续优化机制
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white border-l-4 border-indigo-500 p-6 rounded-r-lg shadow-sm">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                                <i class="fas fa-sync-alt mr-2"></i>动态更新体系
+                            </h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-indigo-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-indigo-800 mb-3 flex items-center">
+                                        <i class="fas fa-calendar-check text-indigo-600 mr-2"></i>定期更新机制
+                                    </h4>
+                                    <div class="space-y-3">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-clock text-indigo-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-indigo-700 font-medium">定期对标更新</span>
+                                                <p class="text-xs text-indigo-600 mt-1">每季度更新关键指标数据</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-chart-line text-indigo-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-indigo-700 font-medium">数据持续跟踪</span>
+                                                <p class="text-xs text-indigo-600 mt-1">实时监控市场变化趋势</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-cube text-indigo-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-indigo-700 font-medium">分析模型迭代</span>
+                                                <p class="text-xs text-indigo-600 mt-1">根据实际效果优化模型</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-lightbulb text-indigo-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-indigo-700 font-medium">观点体系优化</span>
+                                                <p class="text-xs text-indigo-600 mt-1">持续完善观点逻辑架构</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-purple-800 mb-3 flex items-center">
+                                        <i class="fas fa-filter text-purple-600 mr-2"></i>质量提升路径
+                                    </h4>
+                                    <div class="space-y-3">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-search text-purple-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-purple-700 font-medium">数据源拓展</span>
+                                                <p class="text-xs text-purple-600 mt-1">持续发现新的信息渠道</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-brain text-purple-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-purple-700 font-medium">分析深度提升</span>
+                                                <p class="text-xs text-purple-600 mt-1">加强洞察的深度和广度</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-network-wired text-purple-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-purple-700 font-medium">关联分析强化</span>
+                                                <p class="text-xs text-purple-600 mt-1">发现更多隐含关系</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-rocket text-purple-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-purple-700 font-medium">前瞻性增强</span>
+                                                <p class="text-xs text-purple-600 mt-1">提高趋势预测准确性</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border-l-4 border-green-500 p-6 rounded-r-lg shadow-sm">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                                <i class="fas fa-chart-pie mr-2"></i>价值评估反馈
+                            </h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-green-800 mb-3 flex items-center">
+                                        <i class="fas fa-eye text-green-600 mr-2"></i>效果跟踪体系
+                                    </h4>
+                                    <div class="space-y-3">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-clipboard-check text-green-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-green-700 font-medium">应用效果跟踪</span>
+                                                <p class="text-xs text-green-600 mt-1">监控报告在实际工作中的应用情况</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-dollar-sign text-green-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-green-700 font-medium">价值实现评估</span>
+                                                <p class="text-xs text-green-600 mt-1">量化评估带来的实际价值</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-comments text-green-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-green-700 font-medium">改进建议收集</span>
+                                                <p class="text-xs text-green-600 mt-1">收集各方反馈意见</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-route text-green-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-green-700 font-medium">下一轮优化规划</span>
+                                                <p class="text-xs text-green-600 mt-1">制定后续改进计划</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-yellow-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-yellow-800 mb-3 flex items-center">
+                                        <i class="fas fa-recycle text-yellow-600 mr-2"></i>循环改进机制
+                                    </h4>
+                                    <div class="space-y-3">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-search-plus text-yellow-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-yellow-700 font-medium">问题识别</span>
+                                                <p class="text-xs text-yellow-600 mt-1">发现现有框架的不足</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-lightbulb text-yellow-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-yellow-700 font-medium">解决方案设计</span>
+                                                <p class="text-xs text-yellow-600 mt-1">制定针对性改进方案</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-play-circle text-yellow-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-yellow-700 font-medium">方案实施</span>
+                                                <p class="text-xs text-yellow-600 mt-1">逐步推进改进措施</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-check-circle text-yellow-600 mt-1 mr-2"></i>
+                                            <div>
+                                                <span class="text-sm text-yellow-700 font-medium">效果验证</span>
+                                                <p class="text-xs text-yellow-600 mt-1">验证改进效果并固化</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                                <i class="fas fa-infinity mr-2"></i>持续改进闭环
+                            </h3>
+                            <div class="relative">
+                                <div class="flex items-center justify-between">
+                                    <div class="text-center">
+                                        <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-play text-blue-600 text-xl"></i>
+                                        </div>
+                                        <span class="text-sm text-gray-700 font-medium">执行实施</span>
+                                        <p class="text-xs text-gray-500 mt-1">按框架开展工作</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-chart-line text-green-600 text-xl"></i>
+                                        </div>
+                                        <span class="text-sm text-gray-700 font-medium">效果监控</span>
+                                        <p class="text-xs text-gray-500 mt-1">跟踪应用效果</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-clipboard-list text-purple-600 text-xl"></i>
+                                        </div>
+                                        <span class="text-sm text-gray-700 font-medium">反馈收集</span>
+                                        <p class="text-xs text-gray-500 mt-1">收集改进建议</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="bg-orange-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                            <i class="fas fa-sync-alt text-orange-600 text-xl"></i>
+                                        </div>
+                                        <span class="text-sm text-gray-700 font-medium">框架优化</span>
+                                        <p class="text-xs text-gray-500 mt-1">持续改进完善</p>
+                                    </div>
+                                </div>
+                                <div class="absolute top-10 left-0 right-0 flex justify-between items-center z-10">
+                                    <i class="fas fa-arrow-right text-gray-400 text-2xl"></i>
+                                    <i class="fas fa-arrow-right text-gray-400 text-2xl"></i>
+                                    <i class="fas fa-arrow-right text-gray-400 text-2xl"></i>
+                                </div>
+                                <div class="absolute top-10 right-0 left-0 flex justify-end">
+                                    <i class="fas fa-arrow-down text-gray-400 text-2xl" style="transform: rotate(180deg); margin-left: auto; margin-right: 2rem;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mt-8">
+            <div class="text-center">
+                <p class="text-gray-600 text-sm">
+                    这套框架体系既确保了知识萃取的深度和专业性，又兼顾了白皮书的可读性和影响力，<br>
+                    为咨询团队提供了一个完整的外部对标知识萃取和价值输出的解决方案。
+                </p>
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <p class="text-xs text-gray-500">
+                        © 2025 云略咨询团队外部对标知识萃取报告+白皮书框架 | 专业 · 系统 · 实用
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
